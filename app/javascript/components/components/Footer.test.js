@@ -21,5 +21,5 @@ describe("<Footer />", () => {
   })
   it("has developers", () => {
     const description = screen.getByText(/marilyn remigio/i)
-})
-})
+  })
+ })
