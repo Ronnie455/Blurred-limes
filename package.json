@@ -23,7 +23,7 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!@toolz/allow-react)/\" --env=jsdom",
     "test-watch": "jest --watch"
   },
   "jest": {

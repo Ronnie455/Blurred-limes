@@ -33,7 +33,6 @@ describe("<Header />", () => {
       </BrowserRouter>
     )
     const aboutUs = screen.getByRole('link', {name: /about us/i})
-    screen.logTestingPlaygroundURL()
     const myFoodItems = userEvent.click(screen.getByRole("link", { name: /my food items/i }))
     const allFoodItems = userEvent.click(screen.getByRole("link", { name: /view food items/i }))
     const createFoodItem = userEvent.click(screen.getByRole("link", { name: /add food item/i }))
