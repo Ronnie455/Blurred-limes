@@ -11,7 +11,7 @@ describe("<NotFound />", () => {
             <NotFound />
             </BrowserRouter>
         )
-        }) 
+        })
         it("renders without crashing", () => {  
             screen.logTestingPlaygroundURL() 
         })
@@ -24,4 +24,5 @@ describe("<NotFound />", () => {
             /Oh dear, this isn't the fridge you're looking for./i)
             expect(error).toBeInTheDocument()
         })
+       
 })
