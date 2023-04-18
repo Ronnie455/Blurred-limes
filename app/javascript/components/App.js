@@ -30,7 +30,7 @@ const App = (props) => {
     <>
       <h1>Blurred Limes</h1>
       <BrowserRouter>
-         <Header />
+         <Header {...props}/>
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
