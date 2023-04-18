@@ -38,7 +38,7 @@ const App = (props) => {
           <Route path="/fooditemshow" element={<FoodItemShow />} />
           <Route path="/fooditemnew" element={<FoodItemNew />} />
           <Route path="/fooditemedit" element={<FoodItemEdit />} />
-          <Route path="/protectedindex" element={<ProtectedIndex />} />
+          <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

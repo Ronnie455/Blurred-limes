@@ -39,7 +39,7 @@ const Header = ({
             {logged_in && (
               <>
                 <NavItem>
-                  <NavLink to="/myfooditems">My Food Items</NavLink>
+                  <NavLink to="/protectedindex">My Food Items</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink to="/fooditemnew">Add Food Item</NavLink>
