@@ -22,6 +22,10 @@
     "jest-environment-jsdom": "^29.5.0",
     "webpack-dev-server": "^3"
   },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
   "jest": {
     "testEnvironment": "jsdom",
     "roots": [
