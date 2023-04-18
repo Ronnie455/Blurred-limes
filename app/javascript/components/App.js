@@ -1,18 +1,22 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home";
+import FoodItemIndex from "./pages/FoodItemIndex";
+import FoodItemShow from "./pages/FoodItemShow";
+import FoodItemNew from "./pages/FoodItemNew";
+import FoodItemEdit from "./pages/FoodItemEdit";
+import ProtectedIndex from "./pages/ProtectedIndex";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-const App = ({
-  logged_in,
-  current_user,
-  new_user_route,
-  sign_in_route,
-  sign_out_route
-}) => {
+const App = (props) => {
   return (
     <>
       <h1>Blurred Limes</h1>
       <BrowserRouter>
-         <Header />
+         <Header {...props}/>
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fooditemindex" element={<FoodItemIndex />} />
