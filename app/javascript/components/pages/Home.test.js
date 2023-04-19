@@ -14,7 +14,6 @@ describe("<Home />", () => {
     )
   })
   it("renders without crashing", () => {   
-    screen.logTestingPlaygroundURL()
   })
   it("has a greeting", () => {
     const header = screen.getByRole('heading', {name:/welcome!/i})
