@@ -23,13 +23,17 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!@toolz/allow-react)/\" --env=jsdom",
     "test-watch": "jest --watch"
   },
   "jest": {
     "testEnvironment": "jsdom",
     "roots": [
       "app/javascript/components"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/mocks/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/mocks/fileMock.js"
+    }
   }
 }

@@ -6,7 +6,7 @@ import FoodItemShow from "./pages/FoodItemShow";
 import FoodItemNew from "./pages/FoodItemNew";
 import FoodItemEdit from "./pages/FoodItemEdit";
 import ProtectedIndex from "./pages/ProtectedIndex";
-import About from "./pages/About";
+import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -39,7 +39,7 @@ const App = (props) => {
           <Route path="/fooditemnew" element={<FoodItemNew />} />
           <Route path="/fooditemedit" element={<FoodItemEdit />} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
