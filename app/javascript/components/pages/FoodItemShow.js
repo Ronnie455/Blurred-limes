@@ -36,19 +36,14 @@ const FoodItemShow = ({foodItems, logged_in}) => {
             <CardText>
               Location: {selectedFoodItem.location}
             </CardText>
+            <Button>
+              <NavLink to={"/fooditemindex"}>
+              Back to Index
+              </NavLink>
+            </Button>
           </CardBody>
         </Card>
-        
-        )}
-      {logged_in && (
-        <>
-      </>
-    )}
-      <Button>
-        <NavLink to={"/fooditemindex"}>
-          Back to Index
-        </NavLink>
-      </Button>
+      )}
     </>
   )
 }
