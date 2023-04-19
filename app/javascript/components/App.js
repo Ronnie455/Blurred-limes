@@ -13,18 +13,31 @@ import Header from "./components/Header";
 import food from './mockFood';
 
 const App = (props) => {
-  const [foodItems, setFoodItems] = useState(food)
+  const [foodItems, setFoodItems] = useState([])
 
   useEffect(() => {
     readFoodItems()
   }, [])
 
   const readFoodItems = () => {
-    fetch("/foodItems")
+    fetch("/food_items")
     .then((response) => response.json())
     .then((payload) => setFoodItems(payload))
     .catch((error) => console.log(error))
   }
+
+  const createFoodItem = (foodItem) => {
+    fetch("/food_items", {
+        body: JSON.stringify(foodItem),
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => readFoodItems())
+    .catch((errors) => console.log(errors))
+}
 
 
   return (
@@ -36,7 +49,7 @@ const App = (props) => {
           <Route path="/" element={<Home />} />
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
           <Route path="/fooditemshow" element={<FoodItemShow />} />
-          <Route path="/fooditemnew" element={<FoodItemNew />} />
+          <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />
           <Route path="/fooditemedit" element={<FoodItemEdit />} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
           <Route path="/aboutus" element={<AboutUs />} />
