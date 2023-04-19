@@ -35,7 +35,7 @@ const App = (props) => {
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
-          <Route path="/fooditemshow" element={<FoodItemShow />} />
+          <Route path="/fooditemshow/:id" element={<FoodItemShow foodItems={foodItems}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew />} />
           <Route path="/fooditemedit" element={<FoodItemEdit />} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
