@@ -1,9 +1,50 @@
-import React from 'react'
+import React from "react"
+import {Card, CardBody, CardText, CardTitle, Button} from "reactstrap"
+import {NavLink, useParams} from "react-router-dom"
 
-const FoodItemShow = () => {
-  return (
-    <div>FoodItemShow</div>
+
+const FoodItemShow = ({foodItems, logged_in}) => {
+  let {id} = useParams()
+  let selectedFoodItem = foodItems?.find(foodItem => foodItem.id === +id)
+    
+
+    return (
+    <>
+      {selectedFoodItem && (
+        <Card
+        style={{
+          width: "45%"
+        }}
+        >
+        <img
+          alt={selectedFoodItem.name}
+          src={selectedFoodItem.image}
+        />
+          <CardBody>
+            <CardTitle>
+              Food Information
+            </CardTitle>
+            <CardText>
+              {selectedFoodItem.name}
+            </CardText>
+            <CardText>
+              Quantity: {selectedFoodItem.quantity}
+            </CardText>
+            <CardText>
+              Expiration Date: {selectedFoodItem.expiration_date}
+            </CardText>
+            <CardText>
+              Location: {selectedFoodItem.location}
+            </CardText>
+            <Button>
+              <NavLink to={"/fooditemindex"}>
+              Back to Index
+              </NavLink>
+            </Button>
+          </CardBody>
+        </Card>
+      )}
+    </>
   )
 }
-
 export default FoodItemShow
