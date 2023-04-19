@@ -35,7 +35,7 @@ const Protectedindex = ({foodItems, current_user}) => {
               <NavLink>Edit</NavLink>
             </Button>
             <Button>
-              <NavLink>Edit</NavLink>
+              <NavLink>Delete</NavLink>
             </Button>
           </CardBody>
         </Card>
