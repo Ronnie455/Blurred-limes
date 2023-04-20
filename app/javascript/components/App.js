@@ -76,7 +76,7 @@ const updateFoodItem = (foodItem, id) => {
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
           <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />
-          <Route path="/fooditemedit/:id" element={<FoodItemEdit />} foodItems={foodItems} updateFoodItem={updateFoodItem} />
+          <Route path="/fooditemedit/:id" element={<FoodItemEdit foodItems={foodItems} updateFoodItem={updateFoodItem}/>} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />

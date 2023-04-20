@@ -19,6 +19,16 @@ class FoodItemsController < ApplicationController
             render json: food_item
         end
     end
+    def update
+        food_item = FoodItem.find(params[:id])
+        food_item.update(food_params)
+        if food_item.valid?
+            render json: food_item
+        else
+            render json: food_item.errors, status: 422
+        end
+    end
+   
 
     private
     def food_params
