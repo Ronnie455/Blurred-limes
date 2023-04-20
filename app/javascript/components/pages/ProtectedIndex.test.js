@@ -26,7 +26,7 @@ describe("<ProtectedIndex />", () => {
     it("renders without crashing", () => {})
   
     it("renders the heading", () => {
-      const heading = screen.getByText("My Food Items")
+      const heading = screen.getByText("My Inventory")
       expect(heading).toBeInTheDocument()
     })
 

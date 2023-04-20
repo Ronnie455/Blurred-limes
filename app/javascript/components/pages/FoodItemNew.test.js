@@ -34,12 +34,12 @@ describe("<FoodItemNew />", () => {
   })
 
   it("has a textbox for expiration_date", () => {
-    const foodItem = screen.getByPlaceholderText(/good until what date\?/i)
+    const foodItem = screen.getByPlaceholderText(/mm\/dd\/yyyy/i)
     expect(foodItem).toBeInTheDocument()
   })
 
   it("has a textbox for location", () => {
-    const foodItem = screen.getByPlaceholderText(/location/i)
+    const foodItem = screen.getByPlaceholderText(/ex\. refrigerator, pantry, etc/i)
     expect(foodItem).toBeInTheDocument()
   })
 

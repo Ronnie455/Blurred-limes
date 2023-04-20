@@ -27,8 +27,9 @@ describe("<FoodItemShow />", () => {
         <FoodItemShow logged_in={false} />
       </BrowserRouter>
     )
-    const allFoodItems = userEvent.click(
-      screen.getByRole("link", { name: /back to index/i })
+    const allFoodItems = userEvent.click(screen.getByRole('link', {
+        name: /back to inventory/i
+      })
     )
   })
 })
