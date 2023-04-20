@@ -105,7 +105,168 @@ RSpec.describe "FoodItems", type: :request do
       json = JSON.parse(response.body)
       expect(json['location']).to include "can't be blank"
     end
+  end
 
+  describe 'PATCH /update' do
+    it 'updates a food item' do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response).to have_http_status(200)
+      expect(updated_food_item.quantity).to eq 2
+    end 
+
+    it "doesn't update a food item without a name" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['name']).to include "can't be blank"
+    end
+
+    it "doesn't update a food item without a quantity" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "Milk", quantity: "", expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['quantity']).to include "can't be blank"
+    end
+
+    it "doesn't update a food item without an expiration_date" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "Milk", quantity: 2, expiration_date: "", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['expiration_date']).to include "can't be blank"
+    end
+
+    it "doesn't update a food item without a location" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['location']).to include "can't be blank"
+    end
+
+    it "doesn't update a food item without an image" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "", user_id: user.id
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['image']).to include "can't be blank"
+    end
+
+    it "doesn't update a food item without a user_id" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+
+      updated_food_params = {
+        food_item: {
+          name: "", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: ""
+        }
+      }
+
+      patch "/food_items/#{food_item.id}", params: updated_food_params
+      updated_food_item = FoodItem.find(food_item.id)
+      expect(response.status).to eq 422
+      json = JSON.parse(response.body)
+      expect(json['user_id']).to include "can't be blank"
+    end
   end
 
 end

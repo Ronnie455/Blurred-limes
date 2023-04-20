@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
   const [editFoodItem, setEditFoodItem] = useState();
+  console.log("editFoodItem", editFoodItem)
   const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
@@ -47,7 +48,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="quanity">Quantity</Label>
+            <Label for="quantity">Quantity</Label>
             <Input
               id="quantity"
               name="quantity"

@@ -9,12 +9,17 @@ import food from "../mockFood";
 
 describe("<FoodItemEdit />", () => {
   beforeEach(() => {
+    const current_user = {
+      email: "trfmalpha@gmail.com",
+      password: "testing123",
+      id: 1
+    }
     render(
       <MemoryRouter initialEntries={["/fooditemedit/1"]}>
         <Routes>
           <Route
             path="/fooditemedit/:id"
-            element={<FoodItemEdit food={food} />}
+            element={<FoodItemEdit foodItems={food} current_user={current_user} />}
           />
         </Routes>
       </MemoryRouter>
@@ -22,38 +27,23 @@ describe("<FoodItemEdit />", () => {
   });
  
   it("renders an edit page without crashing", () => {
-    
+        screen.logTestingPlaygroundURL()
   });
   it("has fillable forms for updating a food item", () => {
-    screen.logTestingPlaygroundURL()
-    // const formName = screen.getByText(/name/i);
-    // expect(formName).toBeInTheDocument()
 
-  //   const formPlanet = screen.getByText(/planet/i);
-  //   expect(formPlanet.getAttribute("for")).toEqual("planet");
+    const formName = screen.getByText(/name/i);
+    expect(formName).toBeInTheDocument()
 
-  //   const formBedrooms = screen.getByText(/bedrooms/i);
-  //   expect(formBedrooms.getAttribute("for")).toEqual("bedrooms");
+    const formQuantity = screen.getByText(/quantity/i);
+    expect(formQuantity.getAttribute("for")).toEqual("quantity");
 
-  //   const formBathrooms = screen.getByText(/bathrooms/i);
-  //   expect(formBathrooms.getAttribute("for")).toEqual("bathrooms");
+    const formExpiration = screen.getByText(/expiration date/i);
+    expect(formExpiration.getAttribute("for")).toEqual("expiration_date");
 
-  //   const formSquareFootage = screen.getByText(/square footage/i);
-  //   expect(formSquareFootage.getAttribute("for")).toEqual("square_footage");
+    const formLocation = screen.getByText(/location/i);
+    expect(formLocation.getAttribute("for")).toEqual("location");
 
-  //   const formUtilities = screen.getByText(/utilities/i);
-  //   expect(formUtilities.getAttribute("for")).toEqual("utilities");
-
-  //   const formParking = screen.getByText(/parking/i);
-  //   expect(formParking.getAttribute("for")).toEqual("parking");
-
-  //   const formPets = screen.getByText(/pets/i);
-  //   expect(formPets.getAttribute("for")).toEqual("pets");
-
-  //   const formPrice = screen.getByText(/price/i);
-  //   expect(formPrice.getAttribute("for")).toEqual("price");
-
-  //   const formImage = screen.getByText(/image/i);
-  //   expect(formImage.getAttribute("for")).toEqual("image");
+    const formImage = screen.getByText(/image/i);
+    expect(formImage.getAttribute("for")).toEqual("image");
   });
 });
