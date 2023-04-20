@@ -269,4 +269,20 @@ RSpec.describe "FoodItems", type: :request do
     end
   end
 
+  describe "DELETE/destroy" do
+    it "deletes a food item" do
+      food_params = {
+        food_item: {
+          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+        }
+      }
+      post '/food_items', params: food_params
+      food_item = FoodItem.first
+      food_items = FoodItem.all
+
+      delete "/food_items/#{food_item.id}"
+      expect(response).to have_http_status(200)
+      expect(food_items).to be_empty
+    end
+  end 
 end

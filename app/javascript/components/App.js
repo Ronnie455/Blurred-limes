@@ -39,18 +39,31 @@ const App = (props) => {
     .catch((errors) => console.log(errors))
 }
 
-  const updateFoodItem = (foodItem, id) => {
-    fetch(`/food_items/${id}`, {
-      body: JSON.stringify(foodItem),
+const updateFoodItem = (foodItem, id) => {
+  fetch(`/food_items/${id}`, {
+    body: JSON.stringify(foodItem),
       headers: {
-      "Content-Type": "application/json",
-    },
-    method: "PATCH"
+          "Content-Type": "application/json"
+      }, 
+      method: "PATCH"
   })
+  .then((response) => response.json())
+  .then((payload) => readFoodItems(payload))
+  .catch((errors) => console.log("FoodItem update errors:", errors))
+}
+
+  const deleteFoodItem = (id) => {
+    fetch(`/food_items/${id}`, {
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        method: "DELETE"
+    })
     .then((response) => response.json())
-    .then((payload) => readFoodItems(payload))
-    .catch((errors) => console.log("FoodItem update errors:", errors));
-};
+    .then(() => readFoodItems())
+    .catch((errors) => console.log(errors))
+  }
+  
 
 
   return (
@@ -61,7 +74,7 @@ const App = (props) => {
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
-          <Route path="/fooditemshow/:id" element={<FoodItemShow foodItems={foodItems} {...props}/>} />
+          <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />
           <Route path="/fooditemedit/:id" element={<FoodItemEdit foodItems={foodItems} updateFoodItem={updateFoodItem}/>} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />

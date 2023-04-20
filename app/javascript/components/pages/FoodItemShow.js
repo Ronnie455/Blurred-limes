@@ -1,14 +1,15 @@
 import React from "react"
 import {Card, CardBody, CardText, CardTitle, Button} from "reactstrap"
-import {NavLink, useParams,useNavigate} from "react-router-dom"
+import {NavLink, useParams, useNavigate} from "react-router-dom"
 
-
-const FoodItemShow = ({foodItems, logged_in}) => {
-  let {id} = useParams()
+const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
+  const {id} = useParams()
   const navigate = useNavigate()
   let selectedFoodItem = foodItems?.find(foodItem => foodItem.id === +id)
-    
-
+  const handlesubmit = () => {
+    deleteFoodItem (selectedFoodItem.id)
+    navigate("/protectedindex")
+  }
     return (
     <>
       {selectedFoodItem && (
@@ -45,8 +46,8 @@ const FoodItemShow = ({foodItems, logged_in}) => {
            <Button>
             <NavLink to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
            </Button>
-           <Button>
-            <NavLink>Delete</NavLink>
+           <Button onClick={handlesubmit}>
+            <NavLink to={"/fooditemindex"}>Delete Food Item</NavLink>
            </Button>
               </>
               )}

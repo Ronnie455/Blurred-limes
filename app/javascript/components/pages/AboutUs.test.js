@@ -15,39 +15,81 @@ describe("<AboutUs />", () => {
   })
   it("renders without crashing", () => {   
   })
-  it("has a header", () => {
-    screen.logTestingPlaygroundURL()
+  it("has a meet the developers header", () => {
     const header = screen.getByRole('heading', {name: /meet the developers/i})
     expect(header).toBeInTheDocument()
   })
   it("has an image for tammy", () => {
-    screen.logTestingPlaygroundURL()
     const tammy = screen.getByRole('img', {name: /photo of tammy/i})
     expect(tammy).toBeInTheDocument()
   })
   it("has an image for marilyn", () => {
-    screen.logTestingPlaygroundURL()
     const marilyn = screen.getByRole('img', {name: /photo of marilyn/i})
     expect(marilyn).toBeInTheDocument()
   })
   it("has an image for manny", () => {
-    screen.logTestingPlaygroundURL()
     const manny = screen.getByRole('img', {name: /photo of manny/i})
     expect(manny).toBeInTheDocument()
   })
   it("has an image for ronnie", () => {
-    screen.logTestingPlaygroundURL()
     const ronnie = screen.getByRole('img', {name: /photo of ronnie/i})
     expect(ronnie).toBeInTheDocument()
   })
   it("has a bio for tammy", () => {
-    screen.logTestingPlaygroundURL()
     const tammy = screen.getByText(
-      /i'm currently attending learn academy as a full\-time software development student looking to pivot into a new career\. before making the decision to attend learn academy, i have been getting my feet wet in the corporate world for the past few years \- i took on various different roles such as being a receptionist, office manager, and an assistant program manager\. during this time, i developed an interest in graphic design to explore my creative side and completed a graphic design program at uc berkeley extension while working at my full\-time job\. i quickly realized that i can do more with graphic design if i knew how to code, so naturally, coding started to pique my interest\. now i'm exposed to so many different paths for software development and am excited to start a new career! in my spare time, i like to watch sports and plan my next travel destination!/i
+      /before becoming a software developer, tammy took on various different roles in the corporate world such as being a receptionist, office manager, and an assistant program manager\. during this time, she became interested in software development and decided to take the next step to pivot into a different career path\. her hobbies include traveling around the world and watching sports\. one thing you can always find in her pantry is hot cheetos chips!/i
       )
     expect(tammy).toBeInTheDocument()
   })
-  
-
+  it("has a bio for manny", () => {
+    const manny = screen.getByText(
+      /a veteran and full stack web devleoper\. his dedication and willingness to specialize in both ends of the framework can be tedious, however his military background and life experiences have assisted with the transition\. manny's hobbies include watching sports and playing with his son\. one thing you can find in his pantry is baking soda!/i
+      )
+    expect(manny).toBeInTheDocument()
+  })
+  it("has a bio for ronnie", () => {
+    const ronnie = screen.getByText(
+      /a veteran that comes from a blue collar background\. before transitioning into tech, he worked in construction and wildland firefighting\. in his spare time you can find him in the woods on his dirt\-bike where he drops gears and disappears\. one thing you can find in his pantry is white cheddar cheez\-its!/i
+      )
+    expect(ronnie).toBeInTheDocument()
+  })
+  it("has a bio for marilyn", () => {
+    const marilyn = screen.getByText(
+      /a professional hip hop dancer turned software developer who is most eager to connect her artistic creativity to the technology field\. she is passionate about teaching dance and connecting with new people\. when she's not coding, she loves experiencing new places and being outside! one thing you can find in her pantry is liquid iv\.\. gotta stay hydrated!/i
+      )
+    expect(marilyn).toBeInTheDocument()
+  })
+  it("has a header for tammy", () => {
+    const tammy = screen.getByRole('heading', {name: /tammy tran/i})
+    expect(tammy).toBeInTheDocument()
+  })
+  it("has a header for manny", () => {
+    const manny = screen.getByRole('heading', {name: /manny flores/i})
+    expect(manny).toBeInTheDocument()
+  })
+  it("has a header for ronnie", () => {
+    const ronnie = screen.getByRole('heading', {name: /ronnie maynard/i})
+    expect(ronnie).toBeInTheDocument()
+  })
+  it("has a header for marilyn", () => {
+    const marilyn = screen.getByRole('heading', {name: /marilyn remigio/i})
+    expect(marilyn).toBeInTheDocument()
+  })
+  it("has a role for marilyn", () => {
+    const marilyn = screen.getByRole('heading', {name: /project manager/i})
+    expect(marilyn).toBeInTheDocument()
+  })
+  it("has a role for manny", () => {
+    const manny = screen.getByRole('heading', {name: /product manager/i})
+    expect(manny).toBeInTheDocument()
+  })
+  it("has a role for tammy", () => {
+    const tammy = screen.getByRole('heading', {name: /tech lead/i})
+    expect(tammy).toBeInTheDocument()
+  })
+  it("has a role for ronnie", () => {
+    const ronnie = screen.getByRole('heading', {name: /design lead/i})
+    expect(ronnie).toBeInTheDocument()
+  })
 })
 
