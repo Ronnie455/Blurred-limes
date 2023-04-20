@@ -24,11 +24,8 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
         />
           <CardBody>
             <CardTitle>
-              Food Information
+            {selectedFoodItem.name}
             </CardTitle>
-            <CardText>
-              {selectedFoodItem.name}
-            </CardText>
             <CardText>
               Quantity: {selectedFoodItem.quantity}
             </CardText>
@@ -38,22 +35,22 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
             <CardText>
               Location: {selectedFoodItem.location}
             </CardText>
-            </CardBody>
-            </Card>
-            )}
-            {logged_in && (
-            <>
-           <Button>
-            <NavLink to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
-           </Button>
-           <Button onClick={handlesubmit}>
-            <NavLink to={"/fooditemindex"}>Delete Food Item</NavLink>
-           </Button>
-              </>
-              )}
+          </CardBody>
+        </Card>
+      )}
+      {logged_in && (
+        <>
           <Button>
-            <NavLink to={"/fooditemindex"}>
-              Back to Index
+            <NavLink to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
+          </Button>
+          <Button onClick={handlesubmit}>
+            <NavLink to={"/protectedindex"}>Remove from Inventory</NavLink>
+          </Button>
+        </>
+      )}
+          <Button>
+            <NavLink to={"/protectedindex"}>
+              Back to Inventory
             </NavLink>
           </Button>
     </>

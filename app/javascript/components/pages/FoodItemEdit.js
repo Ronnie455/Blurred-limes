@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Button, NavLink } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { useNavigate, useParams } from "react-router-dom"
 
 const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
-  const [editFoodItem, setEditFoodItem] = useState();
-  console.log("editFoodItem", editFoodItem)
-  const navigate = useNavigate();
-  const { id } = useParams();
+  const [editFoodItem, setEditFoodItem] = useState()
+  const navigate = useNavigate()
+  const { id } = useParams()
+
   useEffect(() => {
     if (foodItems?.length > 0) {
       let currentFoodItem = foodItems.find(
         (foodItem) => foodItem.id === +id
-      );
+      )
+
       setEditFoodItem({
         name: currentFoodItem.name,
         quantity: currentFoodItem.quantity,
@@ -19,18 +20,18 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
         location: currentFoodItem.location,
         image: currentFoodItem.image,
         user_id: current_user?.id,
-      });
+      })
     }
-  }, [foodItems]);
+  }, [foodItems])
 
   const handleChange = (e) => {
-    setEditFoodItem({ ...editFoodItem, [e.target.name]: e.target.value });
-  };
+    setEditFoodItem({ ...editFoodItem, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = () => {
-    updateFoodItem(editFoodItem, id);
-    navigate(`/fooditemshow/${id}`);
-  };
+    updateFoodItem(editFoodItem, id)
+    navigate(`/fooditemshow/${id}`)
+  }
   if (editFoodItem) {
     return (
       <>

@@ -25,14 +25,14 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
 
   return (
     <div className="create-form">
-      <h1>Add a New Food Item</h1>
+      <h1>Add a New Food Item to Your Inventory</h1>
       <Form>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input
             id="name"
             name="name"
-            placeholder="What is the name of the food item?"
+            placeholder="name of the food item"
             type="text"
             onChange={handleChange}
           />
@@ -42,7 +42,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           <Input
             id="quantity"
             name="quantity"
-            placeholder="How many do you have of this food item?"
+            placeholder="quantity of the food item"
             type="number"
             onChange={handleChange}
           />
@@ -51,7 +51,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           <Label for="expiration_date">Expiration Date</Label>
           <Input
             name="expiration_date"
-            placeholder="Good until what date?"
+            placeholder="MM/DD/YYYY"
             type="text"
             onChange={handleChange}
           />
@@ -60,7 +60,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           <Label for="location">Location</Label>
           <Input
             name="location"
-            placeholder="Location of the item"
+            placeholder="ex. refrigerator, pantry, etc"
             type="text"
             onChange={handleChange}
           />
@@ -69,12 +69,12 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           <Label for="image">Image</Label>
           <Input
             name="image"
-            placeholder="Add an image URL"
+            placeholder="add an image URL"
             type="text"
             onChange={handleChange}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Add New Food Item</Button>
+        <Button onClick={handleSubmit}>Add to Inventory</Button>
       </Form>
     </div>
   )

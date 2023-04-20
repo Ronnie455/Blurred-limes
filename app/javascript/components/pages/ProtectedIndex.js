@@ -7,7 +7,7 @@ const Protectedindex = ({foodItems, current_user}) => {
 
   return (
     <>
-    <h1>My Food Items</h1>
+    <h1>My Inventory</h1>
     <div className='foodItems'>
       {myFoodItems?.map((foodItem, index) => {
         return (
