@@ -72,7 +72,7 @@ const updateFoodItem = (foodItem, id) => {
       <BrowserRouter>
          <Header {...props}/>
          <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home {...props} current_user={props.current_user}/>} />
           <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
           <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />

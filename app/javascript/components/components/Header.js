@@ -33,16 +33,13 @@ const Header = ({
             <NavItem>
               <NavLink to="/aboutus">About Us</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink to="/fooditemindex">View Food Items</NavLink>
-            </NavItem>
             {logged_in && (
               <>
                 <NavItem>
-                  <NavLink to="/protectedindex">My Food Items</NavLink>
+                  <NavLink to="/protectedindex">My Inventory</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/fooditemnew">Add Food Item</NavLink>
+                  <NavLink to="/fooditemnew">Add to Inventory</NavLink>
                 </NavItem>
                 <NavItem>
                   <a href={sign_out_route}>Sign Out</a>
