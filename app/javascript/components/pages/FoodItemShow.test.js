@@ -17,6 +17,7 @@ const renderShow = () => {
     )
 }
 describe("<FoodItemShow />", () => {
+  screen.logTestingPlaygroundURL()
   it("renders without crashing", () => {
     renderShow()
   })
