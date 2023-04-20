@@ -1,10 +1,11 @@
 import React from "react"
 import {Card, CardBody, CardText, CardTitle, Button} from "reactstrap"
-import {NavLink, useParams} from "react-router-dom"
+import {NavLink, useParams,useNavigate} from "react-router-dom"
 
 
 const FoodItemShow = ({foodItems, logged_in}) => {
   let {id} = useParams()
+  const navigate = useNavigate()
   let selectedFoodItem = foodItems?.find(foodItem => foodItem.id === +id)
     
 
@@ -36,14 +37,24 @@ const FoodItemShow = ({foodItems, logged_in}) => {
             <CardText>
               Location: {selectedFoodItem.location}
             </CardText>
-            <Button>
-              <NavLink to={"/fooditemindex"}>
+            </CardBody>
+            </Card>
+            )}
+            {logged_in && (
+            <>
+           <Button>
+            <NavLink to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
+           </Button>
+           <Button>
+            <NavLink>Delete</NavLink>
+           </Button>
+              </>
+              )}
+          <Button>
+            <NavLink to={"/fooditemindex"}>
               Back to Index
-              </NavLink>
-            </Button>
-          </CardBody>
-        </Card>
-      )}
+            </NavLink>
+          </Button>
     </>
   )
 }
