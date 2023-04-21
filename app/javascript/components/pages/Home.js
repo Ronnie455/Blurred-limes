@@ -1,105 +1,64 @@
-import React, { useState } from 'react';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from 'reactstrap'
+import React from 'react'
+import Carousel from 'react-bootstrap/Carousel';
 import Fridge1 from '../assets/Fridge1.png'
-
+import Pantry1 from '../assets/Pantry1.png'
+import Shopping1 from '../assets/Shopping1.png'
+import Cooking4 from '../assets/Cooking4.png'
 
 const Home = ( {logged_in, current_user} ) => {
-  
-  
-  
-
-const items = [
-  {
-    src: {Fridge1},
-    altText: 'Photo of Fridge',
-    caption: 'Slide 1',
-    key: 1,
-  },
-  {
-    src: 'https://picsum.photos/id/456/1200/400',
-    altText: 'Slide 2',
-    caption: 'Slide 2',
-    key: 2,
-  },
-  {
-    src: 'https://picsum.photos/id/678/1200/400',
-    altText: 'Slide 3',
-    caption: 'Slide 3',
-    key: 3,
-  },
-];
-
-function Example(args) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
-        />
-      </CarouselItem>
-    )
-  })
-
-  
-  
   return (
     <>
 
-      <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-        {...args}
-      >
-        <CarouselIndicators
-          items={items}
-          activeIndex={activeIndex}
-          onClickHandler={goToIndex}
+<Carousel>
+      <Carousel.Item interval={1000}>
+        <img
+          className="carousel-img"
+          src={Fridge1}
+          alt="First slide"
         />
-          {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={500}>
+        <img
+          className="carousel-img"
+          src={Pantry1}
+          alt="Second slide"
         />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="carousel-img"
+          src={Shopping1}
+          alt="Third slide"
         />
-      </Carousel>
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="carousel-img"
+          src={Cooking4}
+          alt="Fourth slide"
+        />
+        <Carousel.Caption>
+          <h3>Fourth slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
 
       {logged_in ?  
         <>
@@ -121,5 +80,9 @@ function Example(args) {
     </>
   )
 }
-}
 export default Home
+
+
+
+
+
