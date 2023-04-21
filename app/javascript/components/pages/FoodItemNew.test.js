@@ -44,8 +44,47 @@ describe("<FoodItemNew />", () => {
   })
 
   it("has a textbox for image", () => {
-    const foodItem = screen.getByPlaceholderText(/Add an image URL/i)
+    const foodItem = screen.getByPlaceholderText(/Add an image URL/i
+    )
     expect(foodItem).toBeInTheDocument()
   })
 
+  it("has a button to add to inventory", () => {
+    const addToInventory = screen.getByRole('button', {
+      name: /add to inventory/i
+    })
+    expect(addToInventory).toBeInTheDocument()
+  })
+
+  it("has a name header", () => {
+    const header = screen.getByText(/name/i)
+    expect(header).toBeInTheDocument()
+  })
+
+  it("has a quantity header", () => {
+    const header = screen.getByText(/quantity/i)
+    expect(header).toBeInTheDocument()
+  })
+
+  it("has an expiration date header", () => {
+    const header = screen.getByText(/expiration date/i)
+    expect(header).toBeInTheDocument()
+  })
+
+  it("has a location header", () => {
+    const header = screen.getByText(/location/i)
+    expect(header).toBeInTheDocument()
+  })
+
+  it("has an image header", () => {
+    const header = screen.getByText(/image/i)
+    expect(header).toBeInTheDocument()
+  })
+
+  it("has a page header", () => {
+    const header = screen.getByRole('heading', {
+      name: /add a new food item to your inventory/i
+    })
+    expect(header).toBeInTheDocument()
+  })
 })
