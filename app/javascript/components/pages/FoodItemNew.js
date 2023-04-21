@@ -24,11 +24,14 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
   };
 
   return (
+    
     <div className="create-form">
-      <h1>Add a New Food Item to Your Inventory</h1>
+        <div className="create-header">
+        <h1>Add a New Food Item to Your Inventory</h1>
+        </div>
       <Form>
         <FormGroup>
-          <Label for="name">Name</Label>
+          <Label style={{width: '150px'}} for="name">Name</Label>
           <Input
             id="name"
             name="name"
@@ -38,7 +41,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="quantity">Quantity</Label>
+          <Label style={{width: '150px'}} for="quantity">Quantity</Label>
           <Input
             id="quantity"
             name="quantity"
@@ -48,7 +51,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="expiration_date">Expiration Date</Label>
+          <Label style={{width: '150px'}} for="expiration_date">Expiration Date</Label>
           <Input
             name="expiration_date"
             placeholder="MM/DD/YYYY"
@@ -57,7 +60,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="location">Location</Label>
+          <Label style={{width: '150px'}} for="location">Location</Label>
           <Input
             name="location"
             placeholder="ex. refrigerator, pantry, etc"
@@ -66,7 +69,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="image">Image</Label>
+          <Label style={{width: '150px'}} for="image">Image</Label>
           <Input
             name="image"
             placeholder="add an image URL"
@@ -74,7 +77,9 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
             onChange={handleChange}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Add to Inventory</Button>
+        <div className="invetory-button text-center">
+        <Button  onClick={handleSubmit}>Add to Inventory</Button>
+        </div>
       </Form>
     </div>
   )
