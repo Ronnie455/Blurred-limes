@@ -20,4 +20,4 @@ describe("<FoodItemIndex />", () => {
         const header = screen.getByRole('heading', {name: /Sign up to keep track of your own food items!/i})
         expect(header).toBeInTheDocument()
     })
-});
+})

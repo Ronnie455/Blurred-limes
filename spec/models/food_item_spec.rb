@@ -33,4 +33,31 @@ RSpec.describe FoodItem, type: :model do
     food_item = FoodItem.create(name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
     expect(food_item.errors[:user_id]).to include "can't be blank"
   end
+
+  it 'is not valid without a unique name' do
+    food_item = {name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"}
+    food_item2 = FoodItem.create(name: "Milk", quantity: 1, expiration_date: "05/05/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    expect(food_item2).to_not be_valid
+  end
+
+  it 'is not valid if name is less than 2 characters' do
+    food_item = FoodItem.create(name: "M", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    expect(food_item).to_not be_valid
+  end
+
+  it 'is not valid if quantity is less than 1 character' do
+    food_item = FoodItem.create(name: "Milk", quantity: "", expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    expect(food_item).to_not be_valid
+  end
+
+  it 'is not valid if expiration date is less than 3 characters' do
+    food_item = FoodItem.create(name: "Milk", quantity: 1, expiration_date: "05", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    expect(food_item).to_not be_valid
+  end
+
+  it 'is not valid if location is less than 3 characters' do
+    food_item = FoodItem.create(name: "Milk", quantity: 1, expiration_date: "05/03/2023", location: "Re", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+    expect(food_item).to_not be_valid
+  end
+
 end
