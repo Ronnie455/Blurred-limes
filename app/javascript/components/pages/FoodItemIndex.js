@@ -6,18 +6,22 @@ const FoodItemIndex = ({foodItems}) => {
   return (
     <>
     <h2>Sign up to keep track of your own food items!</h2>
-    <div className='foodItems'>
+    <div className='food-items'>
       {foodItems?.map((foodItem, index) => {
         return (
           <Card
           key={index}
           style={{
-            width: '18rem'
+            width: '18rem',
+            height: '500px'
           }}
           >
           <img
             alt={foodItem.name}
             src={foodItem.image}
+            width="100%"
+            height="300px"
+            object-fit="cover"
           />
           <CardBody>
             <CardTitle tag="h5">

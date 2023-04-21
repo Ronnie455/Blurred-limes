@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, CardTitle, Button } from 'reactstrap'
+import { Card, CardBody, CardTitle, Button, CardSubtitle, CardText } from 'reactstrap'
 import { NavLink } from "react-router-dom";
 
 const Protectedindex = ({foodItems, current_user}) => {
@@ -8,7 +8,7 @@ const Protectedindex = ({foodItems, current_user}) => {
   return (
     <>
     <h1>My Inventory</h1>
-    <div className='foodItems'>
+    <div className='inventory'>
       {myFoodItems?.map((foodItem, index) => {
         return (
           <Card
@@ -17,15 +17,29 @@ const Protectedindex = ({foodItems, current_user}) => {
             width: '18rem'
           }}
           >
+            <CardBody>
+            <CardTitle tag="h5">
+              {foodItem.name}
+            </CardTitle>
+            <CardSubtitle
+              className="mb-2 text-muted"
+              tag="h6"
+            >
+              {foodItem.location}
+            </CardSubtitle>
+          </CardBody>
           <img
             alt={foodItem.name}
             src={foodItem.image}
+            width="80%"
+            height="300px"
+            object-fit="contain"
           />
           <CardBody>
-            <CardTitle tag="h5">
-            {foodItem.quantity} {foodItem.name}
+            <CardText>
+            Current Stock: {foodItem.quantity}
             <br/> Expires: {foodItem.expiration_date}
-            </CardTitle>
+            </CardText>
             <Button>
               <NavLink to={`/fooditemshow/${foodItem.id}`}>
               More Info
