@@ -1,5 +1,11 @@
 @import "bootstrap";
 
+// general 
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 // about us 
 .developers-container {
     display: flex;
@@ -9,4 +15,26 @@
 .dev-image {
     width: 200px;
     height: 200px;
+}
+
+// cards
+.inventory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+.show-item {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    align-items: center;
+    margin-bottom: 40px;
+    border: solid #203611 2px;
 }
