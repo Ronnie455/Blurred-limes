@@ -17,7 +17,6 @@ const renderShow = () => {
     )
 }
 describe("<FoodItemShow />", () => {
-  screen.logTestingPlaygroundURL()
   it("renders without crashing", () => {
     renderShow()
   })
@@ -27,10 +26,16 @@ describe("<FoodItemShow />", () => {
         <FoodItemShow logged_in={false} />
       </BrowserRouter>
     )
-    const allFoodItems = userEvent.click(screen.getByRole('link', {
-        name: /back to inventory/i
-      })
+    const allFoodItems = userEvent.click(screen.getByRole('link', {name: /back to inventory/i}))
+})
+  it("has clickable links for a registered user", () => {
+    render(
+      <BrowserRouter>
+        <FoodItemShow logged_in={true} />
+      </BrowserRouter>
     )
+    const editFoodItem = screen.getByRole('link', {name: /edit food item/i})
+    const removeFoodItem = screen.getByRole('link', {name: /remove from inventory/i})
+    const backToIndex = userEvent.click(screen.getByRole('link', {name: /back to inventory/i}))
   })
 })
-

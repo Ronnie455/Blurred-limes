@@ -30,13 +30,18 @@ describe("<ProtectedIndex />", () => {
       expect(heading).toBeInTheDocument()
     })
 
-    it("displays my listing image", () => {
+    it("displays item image", () => {
       const foodItemImage = screen.getByRole('img', {name: /milk/i})
       expect(foodItemImage).toBeInTheDocument()
     })
 
-    it("displays information about my listing", () => {
+    it("displays information about item", () => {
       const foodItemInfo = screen.getByRole('heading', {name: /1 milk expires: 05\/01\/23/i})
       expect(foodItemInfo).toBeInTheDocument()
+    })
+
+    it("has a button for more info", () => {
+      const moreInfo = screen.getByRole('link', {name: /more info/i})
+      expect(moreInfo).toBeInTheDocument()
     })
   })
