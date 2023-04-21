@@ -37,7 +37,7 @@ describe("<AboutUs />", () => {
   })
   it("has a bio for tammy", () => {
     const tammy = screen.getByText(
-      /before becoming a software developer, tammy took on various different roles in the corporate world such as being a receptionist, office manager, and an assistant program manager\. during this time, she became interested in software development and decided to take the next step to pivot into a different career path\. her hobbies include traveling around the world and watching sports\. one thing you can always find in her pantry is hot cheetos chips!/i
+      /before becoming a software developer, tammy took on various different roles in the corporate world\. during this time, she became interested in software development and decided to take the next step to pivot into a different career path\. her hobbies include traveling and watching sports\. one thing you can always find in her pantry is hot cheetos chips!/i
       )
     expect(tammy).toBeInTheDocument()
   })

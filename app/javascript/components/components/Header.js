@@ -30,7 +30,7 @@ const Header = ({
         <NavbarBrand href="/"><img style={{ width: 140, height: 90 }} src={Logo} alt='photo of logo' className='header-logo'/></NavbarBrand>
           <Nav className="nav-items" navbar>
             <NavItem>
-              <NavLink to="/aboutus" style={{color:"#203611"}}>About Us</NavLink>
+              <NavLink to="/aboutus" style={{color:"#203611"}}>Meet The Team</NavLink>
             </NavItem>
             {logged_in && (
               <>
@@ -48,10 +48,10 @@ const Header = ({
             {!logged_in && (
               <>
                 <NavItem>
-                  <a href={sign_in_route}>Sign In</a>
+                  <a href={sign_in_route} style={{color:"#203611"}}>Sign In</a>
                 </NavItem>
                 <NavItem>
-                  <a href={new_user_route}>Sign Up</a>
+                  <a href={new_user_route} style={{color:"#203611"}}>Sign Up</a>
                 </NavItem>
               </>
             )}
