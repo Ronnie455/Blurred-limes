@@ -1,4 +1,42 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+* {
+    // font-family: 'Architects Daughter', cursive;
+    font-family: 'Nanum Pen Script';
+}
+
+body {
+    height: 100vh;
+}
+
+// nav/header
+.nav-bar {
+    background-color: #E4F3D9;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 3em; 
+    font-size: 20px;
+    font-weight: bold;
+}
+
+// footer
+.footer {
+    background-color: #E4F3D9;
+    width: 100%;
+    color: #203611;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+}
 
 // about us 
 .developers-container {

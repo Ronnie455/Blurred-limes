@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "../assets/Logo.png"
 import {
   Nav,
   NavItem,
@@ -25,24 +26,22 @@ const Header = ({
 
   return (
     <header>
-      <Navbar fixed="top" expand color="dark" dark>
-        <NavbarBrand href="/">Blurred Limes</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
+      <Navbar className="nav-bar" fixed="relative" expand>
+        <NavbarBrand href="/"><img style={{ width: 140, height: 90 }} src={Logo} alt='photo of logo' className='header-logo'/></NavbarBrand>
+          <Nav className="nav-items" navbar>
             <NavItem>
-              <NavLink to="/aboutus">About Us</NavLink>
+              <NavLink to="/aboutus" style={{color:"#203611"}}>About Us</NavLink>
             </NavItem>
             {logged_in && (
               <>
                 <NavItem>
-                  <NavLink to="/protectedindex">My Inventory</NavLink>
+                  <NavLink to="/protectedindex" style={{color:"#203611"}}>My Inventory</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/fooditemnew">Add to Inventory</NavLink>
+                  <NavLink to="/fooditemnew" style={{color:"#203611"}}>Add to Inventory</NavLink>
                 </NavItem>
                 <NavItem>
-                  <a href={sign_out_route}>Sign Out</a>
+                  <a href={sign_out_route} style={{color:"#203611"}}>Sign Out</a>
                 </NavItem>
               </>
             )}
@@ -58,8 +57,6 @@ const Header = ({
             )}
             
           </Nav>
-          <NavbarText>Blurred Limes</NavbarText>
-        </Collapse>
       </Navbar>
     </header>
   )
