@@ -69,7 +69,6 @@ const updateFoodItem = (foodItem, id) => {
 
   return (
     <>
-      <h1>Blurred Limes</h1>
       <BrowserRouter>
          <Header {...props}/>
          <Routes>
