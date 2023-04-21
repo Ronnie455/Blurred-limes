@@ -76,3 +76,38 @@ h1 {
     margin-bottom: 40px;
     border: solid #203611 2px;
 }
+.create-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.create-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 50%;
+}
+  .mb-3 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-secondary {
+  padding: 6px 24px;
+  background-color: #61813E;
+}
+
+.btn-secondary:hover {
+  background-color: #E4F3D9;
+  color: #6c757d
+}
+
