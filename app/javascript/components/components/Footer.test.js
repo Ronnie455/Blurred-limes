@@ -16,7 +16,7 @@ describe("<Footer />", () => {
     screen.logTestingPlaygroundURL()
   })
   it("has app name", () => {
-    const footer = screen.getByText(/©2023 blurred limes/i)
+    const footer = screen.getByText(/© 2023 blurred limes/i)
     expect(footer).toBeInTheDocument()
   })
   it("has developers", () => {

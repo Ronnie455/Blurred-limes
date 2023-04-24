@@ -36,7 +36,7 @@ describe("<ProtectedIndex />", () => {
     })
 
     it("displays information about item", () => {
-      const foodItemInfo = screen.getByRole('heading', {name: /1 milk expires: 05\/01\/23/i})
+      const foodItemInfo = screen.getByText(/current stock: 1 expires: 05\/01\/23/i)
       expect(foodItemInfo).toBeInTheDocument()
     })
 

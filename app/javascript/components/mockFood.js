@@ -27,5 +27,4 @@ const food = [
         user_id: 1
     }
 ]
-
 export default food

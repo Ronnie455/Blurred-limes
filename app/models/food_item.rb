@@ -5,4 +5,5 @@ class FoodItem < ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :quantity, length: { minimum: 1 }
   validates :expiration_date, :location, length: { minimum: 3 }
+  validates :image, length: { minimum: 10 }
 end

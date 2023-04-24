@@ -1,29 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png"
-import {
-  Nav,
-  NavItem,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  NavbarText,
-} from "reactstrap";
+import {Nav, NavItem, Navbar, NavbarBrand} from "reactstrap";
 
-
-const Header = ({
-  logged_in,
-  current_user,
-  new_user_route,
-  sign_in_route,
-  sign_out_route,
-}) => {
-
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () => setIsOpen(!isOpen)
-
+const Header = ({logged_in, current_user, new_user_route, sign_in_route, sign_out_route}) => {
   return (
     <header>
       <Navbar className="nav-bar" fixed="relative" expand>
@@ -58,11 +38,9 @@ const Header = ({
                 </NavItem>
               </>
             )}
-            
           </Nav>
       </Navbar>
     </header>
   )
 }
-
 export default Header

@@ -6,13 +6,11 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
   const [editFoodItem, setEditFoodItem] = useState()
   const navigate = useNavigate()
   const { id } = useParams()
-
   useEffect(() => {
     if (foodItems?.length > 0) {
       let currentFoodItem = foodItems.find(
         (foodItem) => foodItem.id === +id
       )
-
       setEditFoodItem({
         name: currentFoodItem.name,
         quantity: currentFoodItem.quantity,
@@ -23,11 +21,9 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
       })
     }
   }, [foodItems])
-
   const handleChange = (e) => {
     setEditFoodItem({ ...editFoodItem, [e.target.name]: e.target.value })
   }
-
   const handleSubmit = () => {
     updateFoodItem(editFoodItem, id)
     navigate(`/fooditemshow/${id}`)
