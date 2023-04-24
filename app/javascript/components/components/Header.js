@@ -29,6 +29,9 @@ const Header = ({
       <Navbar className="nav-bar" fixed="relative" expand>
         <NavbarBrand href="/"><img style={{ width: 140, height: 90 }} src={Logo} alt='photo of logo' className='header-logo'/></NavbarBrand>
           <Nav className="nav-items" navbar>
+          <NavItem>
+              <NavLink to="/" style={{color:"#203611"}}>Home</NavLink>
+            </NavItem>
             <NavItem>
               <NavLink to="/aboutus" style={{color:"#203611"}}>Meet The Team</NavLink>
             </NavItem>

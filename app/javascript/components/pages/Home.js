@@ -8,15 +8,17 @@ const Home = ( {logged_in, current_user} ) => {
     <>
       
         {logged_in ?  
+        <>
           <div className="home-message">
             <br />
-            <h1>WELCOME {current_user.email}!</h1>
+            <h2>WELCOME {current_user.email}!</h2>
             <br />
-            <p>View, edit, or add to your inventory!</p>
+            <p><a style={{color:"#203611"}} href='/protectedindex'>View, edit, or add to your inventory!</a></p>
           </div> 
+        </>
           : <div className="home-message">
             <br />
-              <h1>WELCOME!</h1>
+              <h2>WELCOME!</h2>
               <br />
               <p>Reduce waste, save money, <br />
               and keep your kitchen organized. <br />
