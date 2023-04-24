@@ -24,11 +24,9 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
   };
 
   return (
-    
+    <>
+    <h1>Add a New Food Item to Your Inventory</h1>
     <div className="create-form">
-        <div className="create-header">
-        <h1>Add a New Food Item to Your Inventory</h1>
-        </div>
       <Form>
         <FormGroup>
           <Label style={{width: '150px'}} for="name">Name</Label>
@@ -78,10 +76,12 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           />
         </FormGroup>
         <div className="invetory-button text-center">
-        <Button  onClick={handleSubmit}>Add to Inventory</Button>
+        <Button onClick={handleSubmit}>Add to Inventory</Button>
         </div>
       </Form>
+      <br/><br/>
     </div>
+    </>
   )
 }
 
