@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import food from './mockFood';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = (props) => {
   const [foodItems, setFoodItems] = useState([])
