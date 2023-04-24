@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import Fridge1 from '../assets/Fridge1.png'
-import Pantry1 from '../assets/Pantry1.png'
+import Veggies from '../assets/Veggies.png'
 import Shopping1 from '../assets/Shopping1.png'
 import Cooking4 from '../assets/Cooking4.png'
 
@@ -9,7 +9,7 @@ const Home = ( {logged_in, current_user} ) => {
   return (
     <>
 
-<Carousel>
+<Carousel className='carousel'>
       <Carousel.Item interval={1000}>
         <img
           className="carousel-img"
@@ -24,7 +24,7 @@ const Home = ( {logged_in, current_user} ) => {
       <Carousel.Item interval={500}>
         <img
           className="carousel-img"
-          src={Pantry1}
+          src={Veggies}
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -59,7 +59,7 @@ const Home = ( {logged_in, current_user} ) => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-
+{/* 
       {logged_in ?  
         <>
            <h1>Welcome {current_user.email}!</h1>
@@ -74,7 +74,7 @@ const Home = ( {logged_in, current_user} ) => {
             So sign up today because no one wants an angry kitchen. 
             </p>
           </>
-      }
+      } */}
 
         
     </>
