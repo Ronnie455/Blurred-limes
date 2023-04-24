@@ -51,15 +51,15 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
                 {logged_in && (
                   <>
                     <Button>
-                      <NavLink to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
+                      <NavLink style={{color:"white"}} to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
                     </Button>
                     <Button onClick={handlesubmit}>
-                      <NavLink to={"/protectedindex"}>Remove from Inventory</NavLink>
+                      <NavLink style={{color:"white"}} to={"/protectedindex"}>Remove from Inventory</NavLink>
                     </Button>
                   </>
                 )}
                 <Button>
-                  <NavLink to={"/protectedindex"}>
+                  <NavLink style={{color:"white"}} to={"/protectedindex"}>
                     Back to Inventory
                   </NavLink>
                 </Button>

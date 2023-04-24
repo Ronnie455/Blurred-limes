@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import food from './mockFood';
 
-
 const App = (props) => {
   const [foodItems, setFoodItems] = useState([])
 

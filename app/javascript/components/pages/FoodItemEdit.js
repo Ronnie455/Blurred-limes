@@ -39,7 +39,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
       <div className="create-form">
       <Form>
           <FormGroup>
-            <Label for="name">Name</Label>
+            <Label style={{width: '150px'}} for="name">Name</Label>
             <Input
               id="name"
               name="name"
@@ -49,7 +49,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="quantity">Quantity</Label>
+            <Label style={{width: '150px'}} for="quantity">Quantity</Label>
             <Input
               id="quantity"
               name="quantity"
@@ -59,7 +59,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
             />
           </FormGroup>
           <FormGroup>
-          <Label for="expiration_date">Expiration date</Label>
+          <Label style={{width: '150px'}} for="expiration_date">Expiration date</Label>
             <Input
               id="expiration_date"
               name="expiration_date"
@@ -69,7 +69,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="location">Location</Label>
+            <Label style={{width: '150px'}} for="location">Location</Label>
             <Input
               name="location"
               type="text"
@@ -78,7 +78,7 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="image">Image</Label>
+            <Label style={{width: '150px'}} for="image">Image</Label>
             <Input
               name="image"
               type="text"
@@ -86,10 +86,13 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
               value={editFoodItem.image}
             />
           </FormGroup>
-          <Button onClick={handleSubmit}> 
-          Update Food Item
-         </Button>
+          <div className="invetory-button text-center">
+            <Button onClick={handleSubmit}> 
+              Update Food Item
+            </Button>
+         </div>
         </Form>
+        <br/><br/>
       </div>
       </>
     );
