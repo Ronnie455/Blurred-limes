@@ -41,7 +41,7 @@ const Protectedindex = ({foodItems, current_user}) => {
             <br/> Expires: {foodItem.expiration_date}
             </CardText>
             <Button>
-              <NavLink to={`/fooditemshow/${foodItem.id}`}>
+              <NavLink style={{color:"white"}} to={`/fooditemshow/${foodItem.id}`}>
               More Info
               </NavLink>
             </Button>

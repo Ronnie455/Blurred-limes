@@ -34,7 +34,7 @@ body {
     margin: auto;
     padding: 10px;
     font-size: 15px;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
@@ -42,6 +42,13 @@ body {
 h1 {
     display: flex;
     justify-content: center;
+    font-weight: bold;
+    font-size: 50px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: white;
+    background-color: #61813E;
 }
 p {
     display: flex;
@@ -51,11 +58,23 @@ p {
 .developers-container {
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.bio {
+    width: 275px;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .dev-image {
     width: 200px;
     height: 200px;
+    padding-bottom: 10px;
 }
 
 // cards
@@ -87,3 +106,38 @@ p {
     align-items: center;
     margin: auto;
 }
+.create-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.create-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 50%;
+}
+  .mb-3 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-secondary {
+  padding: 6px 24px;
+  background-color: #61813E;
+}
+
+.btn-secondary:hover {
+  background-color: #E4F3D9;
+  color: #6c757d
+}
+
