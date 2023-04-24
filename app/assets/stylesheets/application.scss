@@ -43,7 +43,10 @@ h1 {
     display: flex;
     justify-content: center;
 }
-
+p {
+    display: flex;
+    justify-content: center;
+}
 // about us 
 .developers-container {
     display: flex;
@@ -75,4 +78,12 @@ h1 {
     align-items: center;
     margin-bottom: 40px;
     border: solid #203611 2px;
+}
+.not-found {
+    display: flex;
+    height: 500px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }

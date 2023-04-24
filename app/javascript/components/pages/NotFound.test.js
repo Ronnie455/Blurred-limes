@@ -21,7 +21,7 @@ describe("<NotFound />", () => {
   })
   it("has a error message", () => {
     const error = screen.getByText(
-    /Oh dear, this isn't the fridge you're looking for./i)
+    /Uh Oh! It looks like something is out of place./i)
     expect(error).toBeInTheDocument()
   })   
 })
