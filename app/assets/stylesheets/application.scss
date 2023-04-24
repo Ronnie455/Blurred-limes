@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
+
 * {
     // font-family: 'Architects Daughter', cursive;
     font-family: 'Nanum Pen Script';
@@ -23,13 +24,22 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
-.carousel-img{
-    height: 100vh;
-    position: fixed;
-    left: 543px;
-    justify-content: center;
 
+.home-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+    z-index: 1;
+}
 
+.carousel-inner img {
+    height: 80vh;
+    object-fit: cover;
+    opacity: 0.35;
+    position: relative
 }
 
 
