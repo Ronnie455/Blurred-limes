@@ -14,19 +14,23 @@ Blurred Limes is an application that was built for a registered user to efficien
 
 ## Running The Project Locally
 **From The Repo:**
-1. Clone this project locally
+1. Clone this project locally - $ git clone https://github.com/TRFM-Radio/blurred-limes.git
 
-2. cd into the file name
+2. $ cd blurred-limes
 
-3. $ rails db:create
+3. $ yarn
 
-4. $ rails db:migrate
+4. $ bundle
 
-5. $ rails db:seed
+5. $ rails db:create
 
 6. $ rails db:migrate
 
-7. $ rails s
+7. $ rails db:seed
+
+8. $ rails db:migrate
+
+9. $ rails s
 
 ## Dependencies
  **Backend**
