@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
-import FoodItemIndex from "./pages/FoodItemIndex";
 import FoodItemShow from "./pages/FoodItemShow";
 import FoodItemNew from "./pages/FoodItemNew";
 import FoodItemEdit from "./pages/FoodItemEdit";
@@ -63,7 +62,6 @@ const App = (props) => {
          <Header {...props}/>
          <Routes>
           <Route path="/" element={<Home {...props} current_user={props.current_user}/>} />
-          <Route path="/fooditemindex" element={<FoodItemIndex foodItems={foodItems} />} />
           <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />
           <Route path="/fooditemedit/:id" element={<FoodItemEdit foodItems={foodItems} updateFoodItem={updateFoodItem}/>} />
