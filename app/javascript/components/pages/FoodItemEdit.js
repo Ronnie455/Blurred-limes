@@ -36,51 +36,23 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
       <Form>
           <FormGroup>
             <Label style={{width: '150px'}} for="name">Name</Label>
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              onChange={handleChange}
-              value={editFoodItem.name}
-            />
+            <Input id="name" name="name" type="text" onChange={handleChange} value={editFoodItem.name}/>
           </FormGroup>
           <FormGroup>
             <Label style={{width: '150px'}} for="quantity">Quantity</Label>
-            <Input
-              id="quantity"
-              name="quantity"
-              type="text"
-              onChange={handleChange}
-              value={editFoodItem.quantity}
-            />
+            <Input id="quantity" name="quantity" type="text" onChange={handleChange} value={editFoodItem.quantity}/>
           </FormGroup>
           <FormGroup>
           <Label style={{width: '150px'}} for="expiration_date">Expiration date</Label>
-            <Input
-              id="expiration_date"
-              name="expiration_date"
-              type="text"
-              onChange={handleChange}
-              value={editFoodItem.expiration_date}
-            />
+            <Input id="expiration_date" name="expiration_date" type="text" onChange={handleChange} value={editFoodItem.expiration_date}/>
           </FormGroup>
           <FormGroup>
             <Label style={{width: '150px'}} for="location">Location</Label>
-            <Input
-              name="location"
-              type="text"
-              onChange={handleChange}
-              value={editFoodItem.location}
-            />
+            <Input name="location" type="text" onChange={handleChange} value={editFoodItem.location}/>
           </FormGroup>
           <FormGroup>
             <Label style={{width: '150px'}} for="image">Image</Label>
-            <Input
-              name="image"
-              type="text"
-              onChange={handleChange}
-              value={editFoodItem.image}
-            />
+            <Input name="image" type="text" onChange={handleChange} value={editFoodItem.image}/>
           </FormGroup>
           <div className="invetory-button text-center">
             <Button onClick={handleSubmit}> 

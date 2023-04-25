@@ -1,27 +1,19 @@
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
-
 * {
-    // font-family: 'Architects Daughter', cursive;
     font-family: 'Nanum Pen Script';
 }
-
 body {
     height: 100vh;
     color: #203611;
 }
-
 h2 {
     font-size: 50px;
 }
-
 // nav/header
-.nav-bar {
+.nav-bar { 
     background-color: #E4F3D9;
 }
-
 .nav-items {
     display: flex;
     justify-content: space-between;
@@ -29,7 +21,6 @@ h2 {
     font-size: 20px;
     font-weight: bold;
 }
-
 .home-message {
     position: absolute;
     display: flex;
@@ -40,15 +31,12 @@ h2 {
     font-size: 2em;
     z-index: 1;
 }
-
 .carousel-inner img {
     height: 80vh;
     object-fit: cover;
     opacity: 0.35;
     position: relative
 }
-
-
 // footer
 .footer {
     background-color: #E4F3D9;
@@ -62,8 +50,6 @@ h2 {
     position: relative;
     bottom: 0;
 }
-
-// general 
 h1 {
     display: flex;
     justify-content: center;
@@ -87,7 +73,6 @@ p {
     padding-left: 20px;
     padding-right: 20px;
 }
-
 .bio {
     width: 275px;
     justify-content: center;
@@ -95,13 +80,11 @@ p {
     text-align: center;
     padding-bottom: 20px;
 }
-
 .dev-image {
     width: 200px;
     height: 200px;
     padding-bottom: 10px;
 }
-
 // cards
 .inventory {
     display: flex;
@@ -111,13 +94,11 @@ p {
     margin: 20px;
     padding: 10px;
 }
-
 .show-item {
     display: flex;
     justify-content: center;
     margin: auto;
 }
-
 .card {
     align-items: center;
     margin-bottom: 40px;
@@ -137,13 +118,11 @@ p {
   justify-content: center;
   padding-top: 5%;
 }
-
 .create-header {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
-
 .form-control {
     display: flex;
     justify-content: space-between;
@@ -155,34 +134,27 @@ p {
     display: flex;
     justify-content: center;
 }
-
 .btn-secondary {
   padding: 6px 24px;
   background-color: #61813E;
 }
-
 .btn-secondary:hover {
   background-color: #E4F3D9;
   color: #6c757d
 }
-
 // devise pages
 .row {
     display: flex;
     justify-content: center;
 }
-
 .form-group {
     display: flex;
     justify-content: center;
     text-align: center;
     font-size: 20px;
 }
-
 .links {
     justify-content: center;
     text-align: center;
     color: black;
 }
-
-

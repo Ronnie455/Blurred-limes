@@ -12,10 +12,30 @@ RSpec.describe "FoodItems", type: :request do
         image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
       )
 
+      food_item2 = user.food_items.create(
+        name: "Chocolate Milk", 
+        quantity: 1, 
+        expiration_date: "05/05/2023", 
+        location: "Refrigerator", 
+        image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+      )
+
+      food_item3 = user.food_items.create(
+        name: "Almond Milk", 
+        quantity: 5, 
+        expiration_date: "05/06/2023", 
+        location: "Refrigerator", 
+        image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+      )
+
       get '/food_items'
       food_item = JSON.parse(response.body)
+      food_item2 = JSON.parse(response.body)
+      food_item3 = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(food_item.length).to eq 1
+      expect(food_item2.length).to eq 1
+      expect(food_item3.length).to eq 1
     end
   end
 
@@ -38,7 +58,7 @@ RSpec.describe "FoodItems", type: :request do
       food_item = FoodItem.first
       expect(food_item.name).to eq "Milk"
       food_item = FoodItem.first
-      expect(food_item.quantity).to eq "1"
+      expect(food_item.quantity).to eq 1
       food_item = FoodItem.first
       expect(food_item.expiration_date).to eq "05/01/2023"
       food_item = FoodItem.first
