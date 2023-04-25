@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom"
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import ProtectedIndex from "./ProtectedIndex";
+import ProtectedIndex from "../components/pages/ProtectedIndex";
 import { render, screen } from "@testing-library/react";
 
 describe("<ProtectedIndex />", () => {

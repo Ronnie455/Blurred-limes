@@ -1,9 +1,9 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import FoodItemShow from "./FoodItemShow"
+import FoodItemShow from "../components/pages/FoodItemShow"
 import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom"
-import food from "../mockFood"
+import food from "../components/mockFood"
 
 const renderShow = () => {
     render (

@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import React from "react"
 import {render, screen} from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import FoodItemNew from "./FoodItemNew"
+import FoodItemNew from "../components/pages/FoodItemNew"
 
 describe("<FoodItemNew />", () => {
   beforeEach(() => {
