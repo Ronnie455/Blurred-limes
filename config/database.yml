@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: blurred_limes_production
+  url: <%= ENV['DATABASE_URL'] %>
   username: blurred_limes
   password: <%= ENV["BLURRED_LIMES_DATABASE_PASSWORD"] %>
