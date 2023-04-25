@@ -2,6 +2,7 @@ import React from "react"
 import {Card, CardBody, CardText, CardTitle, Button, CardSubtitle} from "reactstrap"
 import {NavLink, useParams, useNavigate} from "react-router-dom"
 
+
 const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
   const {id} = useParams()
   const navigate = useNavigate()
@@ -53,10 +54,10 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
                     <Button>
                       <NavLink style={{color:"white"}} to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
                     </Button>
-                    <Button onClick={handlesubmit}>
+                    <Button onClick={handlesubmit} >
                       <NavLink style={{color:"white"}} to={"/protectedindex"}>Remove from Inventory</NavLink>
-                    </Button>
-                  </>
+                  </Button>
+                </>
                 )}
                 <Button>
                   <NavLink style={{color:"white"}} to={"/protectedindex"}>
