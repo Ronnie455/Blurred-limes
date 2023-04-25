@@ -61,7 +61,7 @@ const FoodItemShow = ({ foodItems, logged_in, deleteFoodItem }) => {
                     <Button>
                       <NavLink style={{color:"white"}} to={`/fooditemedit/${selectedFoodItem?.id}`}>Edit Food Item</NavLink>
                     </Button>
-                    <Button onClick={handlesubmit} >
+                    <Button onClick={handleSubmit} >
                       <NavLink style={{color:"white"}} to={"/protectedindex"}>Remove from Inventory</NavLink>
                   </Button>
                 </>
