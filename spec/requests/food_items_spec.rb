@@ -4,7 +4,13 @@ RSpec.describe "FoodItems", type: :request do
   let (:user) {User.create email: 'trfmalpha@gmail.com', password: 'test123', password_confirmation: 'test123'}
   describe "GET /index" do
     it 'gets a food item list' do
-      food_item = user.food_items.create(name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+      food_item = user.food_items.create(
+        name: "Milk", 
+        quantity: 1, 
+        expiration_date: "05/01/2023", 
+        location: "Refrigerator", 
+        image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+      )
 
       get '/food_items'
       food_item = JSON.parse(response.body)
@@ -17,7 +23,12 @@ RSpec.describe "FoodItems", type: :request do
     it "creates a food item" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -26,12 +37,24 @@ RSpec.describe "FoodItems", type: :request do
 
       food_item = FoodItem.first
       expect(food_item.name).to eq "Milk"
+      food_item = FoodItem.first
+      expect(food_item.quantity).to eq "1"
+      food_item = FoodItem.first
+      expect(food_item.expiration_date).to eq "05/01/2023"
+      food_item = FoodItem.first
+      expect(food_item.location).to eq "Refrigerator"
+      food_item = FoodItem.first
+      expect(food_item.image).to eq "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
     end
 
     it "does not create a food item without a name" do
       food_params = {
         food_item: {
-          quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -44,7 +67,11 @@ RSpec.describe "FoodItems", type: :request do
     it "does not create a food item without an image" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          user_id: user.id
         }
       }
 
@@ -57,7 +84,11 @@ RSpec.describe "FoodItems", type: :request do
     it "does not create a food item without a user id" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
         }
       }
 
@@ -70,7 +101,11 @@ RSpec.describe "FoodItems", type: :request do
     it "does not create a food item without a quantity" do
       food_params = {
         food_item: {
-          name: "Milk", expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -83,7 +118,11 @@ RSpec.describe "FoodItems", type: :request do
     it "does not create a food item without an expiration date" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -96,7 +135,11 @@ RSpec.describe "FoodItems", type: :request do
     it "does not create a food item without a location" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -111,7 +154,12 @@ RSpec.describe "FoodItems", type: :request do
     it 'updates a food item' do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -120,7 +168,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 2, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -133,7 +186,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without a name" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -142,7 +200,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "", 
+          quantity: 2, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -156,7 +219,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without a quantity" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -165,7 +233,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "Milk", quantity: "", expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: "", 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -179,7 +252,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without an expiration_date" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -188,7 +266,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "Milk", quantity: 2, expiration_date: "", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 2, 
+          expiration_date: "", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -202,7 +285,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without a location" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -211,7 +299,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 2, 
+          expiration_date: "05/01/2023", 
+          location: "", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -225,7 +318,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without an image" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -234,7 +332,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "Milk", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "", user_id: user.id
+          name: "Milk", 
+          quantity: 2, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "", 
+          user_id: user.id
         }
       }
 
@@ -248,7 +351,12 @@ RSpec.describe "FoodItems", type: :request do
     it "doesn't update a food item without a user_id" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: user.id
         }
       }
 
@@ -257,7 +365,12 @@ RSpec.describe "FoodItems", type: :request do
 
       updated_food_params = {
         food_item: {
-          name: "", quantity: 2, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: ""
+          name: "", 
+          quantity: 2, 
+          expiration_date: "05/01/2023", 
+          location: "Refrigerator", 
+          image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+          user_id: ""
         }
       }
 
@@ -273,7 +386,12 @@ RSpec.describe "FoodItems", type: :request do
     it "deletes a food item" do
       food_params = {
         food_item: {
-          name: "Milk", quantity: 1, expiration_date: "05/01/2023", location: "Refrigerator", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", user_id: user.id
+          name: "Milk", 
+          quantity: 1,
+           expiration_date: "05/01/2023", 
+           location: "Refrigerator", 
+           image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+           user_id: user.id
         }
       }
       post '/food_items', params: food_params
