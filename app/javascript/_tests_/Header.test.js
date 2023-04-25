@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
-import Header from "./Header";
+import Header from "../components/components/Header";
 
 describe("<Header />", () => {
   it("renders without crashing", () => {

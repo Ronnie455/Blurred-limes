@@ -1,9 +1,9 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import FoodItemEdit from "./FoodItemEdit";
+import FoodItemEdit from "../components/pages/FoodItemEdit";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import food from "../mockFood";
+import food from "../components/mockFood";
 
 
 describe("<FoodItemEdit />", () => {

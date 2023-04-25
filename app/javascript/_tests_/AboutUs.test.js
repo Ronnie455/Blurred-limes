@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import AboutUs from './AboutUs.js'
+import AboutUs from '../components/pages/AboutUs.js'
 import { BrowserRouter } from "react-router-dom"
 import "@testing-library/jest-dom"
 

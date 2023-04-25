@@ -1,6 +1,6 @@
 import React from "react"
 import { screen, render } from "@testing-library/react"
-import NotFound from "./NotFound"
+import NotFound from "../components/pages/NotFound"
 import { BrowserRouter } from "react-router-dom"
 import "@testing-library/jest-dom"
 
