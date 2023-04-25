@@ -10,22 +10,18 @@ import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import food from './mockFood';
 
 const App = (props) => {
   const [foodItems, setFoodItems] = useState([])
-
   useEffect(() => {
     readFoodItems()
   }, [])
-
   const readFoodItems = () => {
     fetch("/food_items")
     .then((response) => response.json())
     .then((payload) => setFoodItems(payload))
     .catch((error) => console.log(error))
   }
-
   const createFoodItem = (foodItem) => {
     fetch("/food_items", {
         body: JSON.stringify(foodItem),
@@ -37,21 +33,19 @@ const App = (props) => {
     .then((response) => response.json())
     .then(() => readFoodItems())
     .catch((errors) => console.log(errors))
-}
-
-const updateFoodItem = (foodItem, id) => {
-  fetch(`/food_items/${id}`, {
-    body: JSON.stringify(foodItem),
-      headers: {
-          "Content-Type": "application/json"
-      }, 
-      method: "PATCH"
-  })
-  .then((response) => response.json())
-  .then((payload) => readFoodItems(payload))
-  .catch((errors) => console.log("FoodItem update errors:", errors))
-}
-
+  }
+  const updateFoodItem = (foodItem, id) => {
+    fetch(`/food_items/${id}`, {
+      body: JSON.stringify(foodItem),
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        method: "PATCH"
+    })
+    .then((response) => response.json())
+    .then((payload) => readFoodItems(payload))
+    .catch((errors) => console.log("FoodItem update errors:", errors))
+  }
   const deleteFoodItem = (id) => {
     fetch(`/food_items/${id}`, {
         headers: {
@@ -63,9 +57,6 @@ const updateFoodItem = (foodItem, id) => {
     .then(() => readFoodItems())
     .catch((errors) => console.log(errors))
   }
-  
-
-
   return (
     <>
       <BrowserRouter>
@@ -85,5 +76,4 @@ const updateFoodItem = (foodItem, id) => {
     </>
   )
 }
-
 export default App

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const FoodItemNew = ({createFoodItem, current_user}) => {
   const navigate = useNavigate();
-
   const [myFoodItem, setMyFoodItem] = useState({
     name: "",
     quantity: "",
@@ -13,16 +12,13 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
     image: "",
     user_id: current_user?.id,
   });
-
   const handleChange = (e) => {
     setMyFoodItem({ ...myFoodItem, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = () => {
     createFoodItem(myFoodItem);
     navigate("/protectedindex");
-  };
-
+  }
   return (
     <>
     <h1>Add a New Food Item to Your Inventory</h1>
@@ -78,11 +74,9 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
         <div className="invetory-button text-center">
         <Button onClick={handleSubmit}>Add to Inventory</Button>
         </div>
-      </Form>
-      <br/><br/>
+      </Form><br/><br/>
     </div>
     </>
   )
 }
-
 export default FoodItemNew

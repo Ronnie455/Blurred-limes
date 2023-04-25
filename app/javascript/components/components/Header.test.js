@@ -20,7 +20,8 @@ describe("<Header />", () => {
         <Header logged_in={false} />
       </BrowserRouter>
     )
-    const aboutUs = screen.getByRole('link', {name: /about us/i})
+    const home = screen.getByRole('link', {name: /home/i})
+    const aboutUs = screen.getByRole('link', {name: /meet the team/i})
     const signIn = userEvent.click(screen.getByText(/sign in/i))
     const signUp = userEvent.click(screen.getByText(/sign up/i))
   })
@@ -31,7 +32,8 @@ describe("<Header />", () => {
         <Header logged_in={true} />
       </BrowserRouter>
     )
-    const aboutUs = screen.getByRole('link', {name: /about us/i})
+    const home = screen.getByRole('link', {name: /home/i})
+    const aboutUs = screen.getByRole('link', {name: /meet the team/i})
     const myFoodItems = userEvent.click(screen.getByRole("link", { name: /my inventory/i }))
     const createFoodItem = userEvent.click(screen.getByRole("link", { name: /add to inventory/i }))
     const signOut = userEvent.click(screen.getByText(/sign out/i))
