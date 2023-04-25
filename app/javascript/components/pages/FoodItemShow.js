@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {Card, CardBody, CardText, CardTitle, Button, CardSubtitle} from "reactstrap"
 import {NavLink, useParams, useNavigate} from "react-router-dom"
 
@@ -6,9 +6,14 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
   const {id} = useParams()
   const navigate = useNavigate()
   let selectedFoodItem = foodItems?.find(foodItem => foodItem.id === +id)
+
   const handlesubmit = () => {
-    deleteFoodItem (selectedFoodItem.id)
-    navigate("/protectedindex")
+   const confirmDelete = window.confirm("Are you sure you want to delete this?");
+    if (confirmDelete) {
+      deleteFoodItem(selectedFoodItem.id);
+      setVisible(true);
+      navigate("/protectedindex");
+    }
   }
     return (
       <>
