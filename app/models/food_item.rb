@@ -17,7 +17,6 @@ class FoodItem < ApplicationRecord
   validates :expiration_date, length: { maximum: 10 }
   validates :location, length: { maximum: 15 }
   validates :image, length: { maximum: 5500 }
-  validates :name, format: { without: /[\W]/, message: "cannot include symbols" }
   validates :name, format: { without: /\d/, message: "cannot include numbers" }
   validates :location, format: { without: /\d/, message: "cannot include numbers" }
   validates :location, format: { without: /[\W]/, message: "cannot include symbols" }
