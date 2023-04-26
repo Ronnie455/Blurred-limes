@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png"
 import {Nav, NavItem, Navbar, NavbarBrand} from "reactstrap";
 
-const Header = ({logged_in, current_user, new_user_route, sign_in_route, sign_out_route}) => {
+
+const Header = ({logged_in, new_user_route, sign_in_route, sign_out_route, edit_user_registration_route, current_user}) => {
+  console.log(edit_user_registration_route)
   return (
     <header>
       <Navbar className="nav-bar" fixed="relative" expand>
@@ -22,6 +24,9 @@ const Header = ({logged_in, current_user, new_user_route, sign_in_route, sign_ou
                 </NavItem>
                 <NavItem>
                   <NavLink to="/fooditemnew" style={{color:"#203611"}}>Add to Inventory</NavLink>
+                </NavItem>
+                <NavItem>
+                  <a href={edit_user_registration_route} style={{color:"#203611"}}>Edit Profile</a>
                 </NavItem>
                 <NavItem>
                   <a href={sign_out_route} style={{color:"#203611"}}>Sign Out</a>
