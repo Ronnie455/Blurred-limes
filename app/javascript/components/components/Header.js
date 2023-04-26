@@ -5,7 +5,6 @@ import {Nav, NavItem, Navbar, NavbarBrand} from "reactstrap";
 
 
 const Header = ({logged_in, new_user_route, sign_in_route, sign_out_route, edit_user_registration_route, current_user}) => {
-  console.log(edit_user_registration_route)
   return (
     <header>
       <Navbar className="nav-bar" fixed="relative" expand>
