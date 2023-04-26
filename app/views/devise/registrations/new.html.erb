@@ -6,6 +6,10 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <br />
         <div class="form-group">
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder:"Username" %>
+        </div>
+        <br />
+        <div class="form-group">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder:"Email" %>
         </div>
         <br />
@@ -24,7 +28,11 @@
         </div>
       <% end %>
       <br />
-      <div class="links"><%= render "devise/shared/links" %></div>
+      <div class="links">
+        <%= render "devise/shared/links" %>
+        <%= link_to "Back to Home", root_path %>
+      </div>
+     
   </div>
 </div>
 
