@@ -4,7 +4,9 @@
     font-family: 'Nanum Pen Script';
 }
 body {
-    height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     color: #203611;
 }
 h2 {
@@ -32,11 +34,28 @@ h2 {
     z-index: 1;
 }
 .carousel-inner img {
-    height: 80vh;
+    height: 89vh;
     object-fit: cover;
     opacity: 0.35;
-    position: relative
+    position: relative;
 }
+
+.carousel-indicators {
+    margin-bottom: 4rem;
+}
+
+.carousel-control-prev-icon {
+    background-color: black;
+}
+
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: black;
+}
+
 // footer
 .footer {
     background-color: #E4F3D9;
@@ -47,7 +66,7 @@ h2 {
     margin: auto;
     padding: 10px;
     font-size: 15px;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }
 h1 {
@@ -106,8 +125,8 @@ p {
 }
 .not-found {
     display: flex;
-    height: 500px;
-    width: 500px;
+    height: 100vh;
+    width: 100vw;
     justify-content: center;
     align-items: center;
     margin: auto;

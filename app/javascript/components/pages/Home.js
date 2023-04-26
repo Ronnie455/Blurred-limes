@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, UncontrolledCarousel, NavLink, NavItem } from "reactstrap";
 
 const Home = ( {logged_in, current_user} ) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
         {logged_in ?  
