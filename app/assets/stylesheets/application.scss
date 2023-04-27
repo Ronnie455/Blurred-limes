@@ -34,14 +34,15 @@ h2 {
     z-index: 1;
 }
 .carousel-inner img {
-    height: 89vh;
+
+    height: 80vh;
     object-fit: cover;
     opacity: 0.35;
     position: relative;
 }
 
 .carousel-indicators {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .carousel-control-prev-icon {
@@ -85,8 +86,10 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    margin-bottom: 60px;
     padding-left: 20px;
     padding-right: 20px;
+    min-height: 100%;
 }
 .bio {
     width: 275px;
@@ -107,6 +110,7 @@ h1 {
     justify-content: space-around;
     align-items: center;
     margin: 20px;
+    margin-bottom: 60px;
     padding: 10px;
 }
 .show-item {
@@ -146,11 +150,12 @@ h1 {
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    width: 50%;
+    width: 35%;
 }
   .mb-3 {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .btn-secondary {
   padding: 6px 24px;
@@ -176,8 +181,14 @@ h1 {
     text-align: center;
     color: black;
 }
-.carousel-caption {
-    color: #203611;
-    display: flex;
-    font-size: 20px;
+
+// error messages
+
+.text-danger {
+    position: absolute;
+    width: 150px;
+    right: 0px;
+    margin-right: 150px;
+    
 }
+
