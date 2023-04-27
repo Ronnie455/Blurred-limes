@@ -55,7 +55,7 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
               </CardText>
               {logged_in && (
                 <>
-                  <Button>
+                  <Button className="show-btns">
                     <NavLink
                       style={{ color: "white" }}
                       to={`/fooditemedit/${selectedFoodItem?.id}`}
@@ -63,12 +63,12 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
                       Edit Food Item
                     </NavLink>
                   </Button>
-                  <Button onClick={toggleModal}>
+                  <Button className="show-btns" onClick={toggleModal}>
                     Remove from Inventory
                   </Button>
                 </>
               )}
-              <Button>
+              <Button className="show-btns">
                 <NavLink style={{ color: "white" }} to={"/protectedindex"}>
                   Back to Inventory
                 </NavLink>
@@ -93,6 +93,5 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
       </Modal>
     </>
   );
-};
-
+}
 export default FoodItemShow;

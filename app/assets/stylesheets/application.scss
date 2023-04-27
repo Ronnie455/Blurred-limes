@@ -32,6 +32,7 @@ h2 {
     width: 100%;
     font-size: 2em;
     z-index: 1;
+    font-weight: bold;
 }
 .carousel-inner img {
 
@@ -182,6 +183,18 @@ h1 {
     color: black;
 }
 
+.carousel-caption {
+    color: #616959;
+    display: flex;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.show-btns {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 // error messages
 
 .text-danger {
@@ -189,6 +202,5 @@ h1 {
     width: 150px;
     right: 0px;
     margin-right: 150px;
-    
 }
 
