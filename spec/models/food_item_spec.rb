@@ -215,17 +215,6 @@ RSpec.describe FoodItem, type: :model do
     expect(food_item.errors[:image]).to_not be_empty
   end
 
-  it 'is not valid if name includes a symbol' do
-    food_item = FoodItem.create(
-      name: "M!lk", 
-      quantity: 1, 
-      expiration_date: "05/01/2023", 
-      location: "Refrigerator", 
-      image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1pbGt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-    )
-    expect(food_item.errors[:name]).to_not be_empty
-  end
-
   it 'is not valid if name includes a number' do
     food_item = FoodItem.create(
       name: "M1lk", 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, UncontrolledCarousel, NavLink, NavItem } from "reactstrap";
+import { UncontrolledCarousel } from "reactstrap";
 
 const Home = ( {logged_in, current_user} ) => {
   return (
@@ -7,8 +7,10 @@ const Home = ( {logged_in, current_user} ) => {
         {logged_in ?  
         <>
           <div className="home-message">
+
             <br /><h2>WELCOME {current_user.email}!</h2><br />
             <a style={{color:"#203611"}} href='/protectedindex'>View, edit, or add to your inventory!</a>
+
           </div> 
         </>
           : <div className="home-message">
