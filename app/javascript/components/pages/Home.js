@@ -32,13 +32,13 @@ const Home = ( {logged_in, current_user} ) => {
         },
         {
           altText: 'Slide 3',
-          caption: 'Blurred Limes has had such a positive impact on my life. By continuing to use this app and make conscious choices about my diet it has really improved my health and wellness.',
+          caption: 'Blurred Limes has had such a positive impact on my life. By continuing to use this app and make conscious choices about my diet it has really improved my health and wellness. -Charles Smith',
           key: 3,
           src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=nrd-D6Tu_L3chLE-unsplash.jpg',
         },
         {
           altText: 'Slide 4',
-          caption: 'Living with roommates can be challenging, especially when it comes to sharing food and groceries. Blurred Limes helped me and my roommates keep track of what groceries we each had whcih prevented misunderstandings or disagreements over shared food. -Eric Allen',
+          caption: 'Living with roommates can be challenging, especially when it comes to sharing food and groceries. Blurred Limes helped me and my roommates keep track of what groceries we each had whichh prevented misunderstandings or disagreements over shared food. -Eric Allen',
           key: 4,
           src: 'https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=jason-briscoe-n4ymhyyFY7A-unsplash.jpg',
         },

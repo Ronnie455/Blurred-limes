@@ -61,11 +61,7 @@ h1 {
     color: white;
     background-color: #61813E;
 }
-p {
-    display: flex;
-    justify-content: center;
-}
-// about us 
+
 .developers-container {
     display: flex;
     flex-wrap: wrap;
@@ -160,7 +156,5 @@ p {
 }
 .carousel-caption {
     color: #203611;
-    
-    
-   
+    display: flex;
 }
