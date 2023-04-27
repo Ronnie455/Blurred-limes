@@ -4,8 +4,10 @@ import { useNavigate, useParams } from "react-router-dom"
 
 const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
   const [editFoodItem, setEditFoodItem] = useState()
+  const [errors, setErrors] = useState({})
   const navigate = useNavigate()
   const { id } = useParams()
+
   useEffect(() => {
     if (foodItems?.length > 0) {
       let currentFoodItem = foodItems.find(
@@ -21,13 +23,36 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
       })
     }
   }, [foodItems])
+
   const handleChange = (e) => {
     setEditFoodItem({ ...editFoodItem, [e.target.name]: e.target.value })
   }
-  const handleSubmit = () => {
-    updateFoodItem(editFoodItem, id)
-    navigate(`/fooditemshow/${id}`)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    let formErrors = {}
+
+    if (!editFoodItem.name) {
+      formErrors.name = "Name is required"
+    }
+
+    if (!editFoodItem.quantity) {
+      formErrors.quantity = "Quantity is required"
+    }
+
+    if (!editFoodItem.expiration_date) {
+      formErrors.expiration_date = "Expiration date is required"
+    }
+
+    setErrors(formErrors)
+
+    if (Object.keys(formErrors).length === 0) {
+      updateFoodItem(editFoodItem, id)
+      navigate(`/fooditemshow/${id}`)
+    }
   }
+
   if (editFoodItem) {
     return (
       <>
@@ -37,14 +62,17 @@ const FoodItemEdit = ({ foodItems, current_user, updateFoodItem }) => {
           <FormGroup>
             <Label style={{width: '150px'}} for="name">Name</Label>
             <Input id="name" name="name" type="text" onChange={handleChange} value={editFoodItem.name}/>
+            {errors.name && <div className="text-danger">{errors.name}</div>}
           </FormGroup>
           <FormGroup>
             <Label style={{width: '150px'}} for="quantity">Quantity</Label>
             <Input id="quantity" name="quantity" type="text" onChange={handleChange} value={editFoodItem.quantity}/>
+            {errors.quantity && <div className="text-danger">{errors.quantity}</div>}
           </FormGroup>
           <FormGroup>
           <Label style={{width: '150px'}} for="expiration_date">Expiration date</Label>
             <Input id="expiration_date" name="expiration_date" type="text" onChange={handleChange} value={editFoodItem.expiration_date}/>
+            {errors.expiration_date && <div className="text-danger">{errors.expiration_date}</div>}
           </FormGroup>
           <FormGroup>
             <Label style={{width: '150px'}} for="location">Location</Label>
