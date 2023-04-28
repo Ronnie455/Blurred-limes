@@ -12,7 +12,7 @@ const Home = ( {logged_in, current_user} ) => {
           </div> 
         </>
           : <div className="home-message">
-              <br /><h2>WELCOME!</h2><br />
+              <h2>WELCOME!</h2><br />
               <p>Reduce waste, save money, <br />and keep your kitchen organized. <br />Sign up today to start tracking your<br/> personal inventory with Blurred Limes.<br /></p>
             </div>
         }
