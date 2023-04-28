@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FoodItem, type: :model do
 
-  let (:user) {User.create email: 'trfmalpha@gmail.com', password: 'test123', password_confirmation: 'test123'}
+  let (:user) {User.create email: 'trfmalpha@gmail.com', password: 'test123', password_confirmation: 'test123', username: 'trfmalpha'}
   it 'should validate name' do
     food_item = user.food_items.create(
       quantity: 1, 

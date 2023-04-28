@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "FoodItems", type: :request do
-  let (:user) {User.create email: 'trfmalpha@gmail.com', password: 'test123', password_confirmation: 'test123'}
+  let (:user) {User.create email: 'trfmalpha@gmail.com', password: 'test123', password_confirmation: 'test123', username: 'trfmalpha'}
   describe "GET /index" do
     it 'gets a food item list' do
       food_item = user.food_items.create(
@@ -33,9 +33,9 @@ RSpec.describe "FoodItems", type: :request do
       food_item2 = JSON.parse(response.body)
       food_item3 = JSON.parse(response.body)
       expect(response).to have_http_status(200)
-      expect(food_item.length).to eq 1
-      expect(food_item2.length).to eq 1
-      expect(food_item3.length).to eq 1
+      expect(food_item.length).to eq 3
+      expect(food_item2.length).to eq 3
+      expect(food_item3.length).to eq 3
     end
   end
 

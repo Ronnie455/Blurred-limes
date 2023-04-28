@@ -26,7 +26,6 @@ describe("<FoodItemEdit />", () => {
   });
  
   it("renders an edit page without crashing", () => {
-        screen.logTestingPlaygroundURL()
   });
   it("has fillable forms for updating a food item", () => {
 

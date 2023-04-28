@@ -92,7 +92,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
             <Label style={{width: '150px'}} for="location">Location</Label>
             <Input
               name="location"
-              placeholder="ex, refrigerator, pantry, etc"
+              placeholder="ex. refrigerator, pantry, etc"
               type="text"
               onChange={handleChange}
             />
@@ -110,7 +110,7 @@ const FoodItemNew = ({createFoodItem, current_user}) => {
           </FormGroup>
           <div className="mb-3">
             <Button onClick={handleSubmit}> 
-              Add Food Item
+              Add To Inventory
             </Button>
           </div>
         </Form>
