@@ -19,7 +19,7 @@ describe("<FoodItemNew />", () => {
     )
   })
 
-  it("renders without crashing", () => {screen.logTestingPlaygroundURL()})
+  it("renders without crashing", () => {})
 
   it("has a textbox for name", () => {
     const foodItem = screen.getByRole('textbox', {
@@ -44,7 +44,7 @@ describe("<FoodItemNew />", () => {
   })
 
   it("has a textbox for image", () => {
-    const foodItem = screen.getByPlaceholderText(/Add an image URL/i
+    const foodItem = screen.getByPlaceholderText(/an image url/i
     )
     expect(foodItem).toBeInTheDocument()
   })

@@ -13,10 +13,10 @@ describe("<NotFound />", () => {
     )
   })
   it("renders without crashing", () => {  
-    screen.logTestingPlaygroundURL() 
+     
   })
   it("has a greeting", () => {
-    const header = screen.getByRole('heading', {name:/Error Page Not Found/i})
+    const header = screen.getByRole('heading', {name:/Uh Oh! It looks like something is out of place./i})
     expect(header).toBeInTheDocument()
   })
   it("has a error message", () => {

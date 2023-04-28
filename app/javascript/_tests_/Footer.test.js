@@ -12,8 +12,7 @@ describe("<Footer />", () => {
         </BrowserRouter>
     )
   })
-  it("renders without crashing", () => {   
-    screen.logTestingPlaygroundURL()
+  it("renders without crashing", () => {
   })
   it("has app name", () => {
     const footer = screen.getByText(/© 2023 blurred limes/i)
