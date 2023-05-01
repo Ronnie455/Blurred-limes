@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { Card, CardBody, CardText, CardTitle, Button, CardSubtitle, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
+import FoodItemEditModal from "../components/FoodItemEditModal";
 
-const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [visible, setVisible] = useState(false);
+const FoodItemShow = ({foodItems, logged_in, current_user, updateFoodItem, deleteFoodItem}) => {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const [visible, setVisible] = useState(false)
+  const [editModalVisible, setEditModalVisible] = useState(false)
 
-  let selectedFoodItem = foodItems?.find((foodItem) => foodItem.id === +id);
+  let selectedFoodItem = foodItems?.find((foodItem) => foodItem.id === +id)
 
-  const toggleModal = () => setVisible(!visible);
+  const toggleModal = () => setVisible(!visible)
+  const toggleEditModal = () => setEditModalVisible(!editModalVisible)
 
   const handleSubmit = () => {
-    const confirmDelete = "Are you sure you want to delete this?";
+    const confirmDelete = "Are you sure you want to delete this?"
     if (confirmDelete) {
-      deleteFoodItem(selectedFoodItem.id);
-      toggleModal();
-      navigate("/protectedindex");
+      deleteFoodItem(selectedFoodItem.id)
+      toggleModal()
+      navigate("/protectedindex")
     }
+  };
+
+  const handleEdit = () => {
+    toggleEditModal()
   };
 
   return (
@@ -55,13 +62,8 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
               </CardText>
               {logged_in && (
                 <>
-                  <Button className="show-btns">
-                    <NavLink
-                      style={{ color: "white" }}
-                      to={`/fooditemedit/${selectedFoodItem?.id}`}
-                    >
-                      Edit Food Item
-                    </NavLink>
+                  <Button className="show-btns" onClick={handleEdit}>
+                    Edit Food Item
                   </Button>
                   <Button className="show-btns" onClick={toggleModal}>
                     Remove from Inventory
@@ -91,7 +93,16 @@ const FoodItemShow = ({foodItems, logged_in, deleteFoodItem}) => {
           </Button>
         </ModalFooter>
       </Modal>
+      <FoodItemEditModal
+        isOpen={editModalVisible}
+        toggleModal={toggleEditModal}
+        foodItems={foodItems}
+        current_user={current_user}
+        selectedFoodItem={selectedFoodItem}
+        updateFoodItem={updateFoodItem}
+      />
     </>
-  );
+  )
 }
-export default FoodItemShow;
+export default FoodItemShow
+

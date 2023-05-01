@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import FoodItemShow from "./pages/FoodItemShow";
 import FoodItemNew from "./pages/FoodItemNew";
-import FoodItemEdit from "./pages/FoodItemEdit";
+import FoodItemEditModal from './components/FoodItemEditModal';
 import ProtectedIndex from "./pages/ProtectedIndex";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
@@ -62,9 +62,9 @@ const App = (props) => {
          <Header {...props}/>
          <Routes>
           <Route path="/" element={<Home {...props} current_user={props.current_user}/>} />
-          <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem}/>} />
+          <Route path="/fooditemshow/:id" element={<FoodItemShow {...props} foodItems={foodItems} deleteFoodItem={deleteFoodItem} updateFoodItem={updateFoodItem}/>} />
           <Route path="/fooditemnew" element={<FoodItemNew current_user={props.current_user} createFoodItem={createFoodItem}/>} />
-          <Route path="/fooditemedit/:id" element={<FoodItemEdit foodItems={foodItems} updateFoodItem={updateFoodItem}/>} />
+          <Route path="/fooditemeditmodal/:id" element={<FoodItemEditModal current_user={props.current_user} foodItems={foodItems} />} />
           <Route path="/protectedindex" element={<ProtectedIndex foodItems={foodItems} current_user={props.current_user} />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
