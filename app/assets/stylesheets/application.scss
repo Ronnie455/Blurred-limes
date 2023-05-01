@@ -70,11 +70,11 @@ h2 {
     color: #203611;
     justify-content: center;
     text-align: center;
-    margin: auto;
+    margin-bottom: 0;
     padding: 10px;
     font-size: 15px;
-    position: fixed;
-    bottom: 0;
+    position: relative;
+
 }
 h1 {
     display: flex;
@@ -136,11 +136,10 @@ p {
 
 .not-found {
     display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
+    height: 500px;
+    width: 333px;
+    margin: auto;
+    position: relative;
     box-sizing: border-box;
   }
 
@@ -206,4 +205,9 @@ p {
 
 .modal-content {
 width: 50vw;
+}
+
+.show-btns {
+    margin-left: 10px;
+    margin-right: 10px;
 }
