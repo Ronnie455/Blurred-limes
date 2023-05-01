@@ -32,7 +32,6 @@ h2 {
     width: 100%;
     font-size: 2em;
     z-index: 1;
-    font-weight: bold;
 }
 .carousel-inner img {
 
@@ -82,7 +81,11 @@ h1 {
     color: white;
     background-color: #61813E;
 }
-
+p {
+    display: flex;
+    justify-content: center;
+}
+// about us 
 .developers-container {
     display: flex;
     flex-wrap: wrap;
@@ -183,18 +186,6 @@ h1 {
     color: black;
 }
 
-.carousel-caption {
-    color: #616959;
-    display: flex;
-    font-size: 16px;
-    font-style: italic;
-}
-
-.show-btns {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 // error messages
 
 .text-danger {
@@ -202,5 +193,11 @@ h1 {
     width: 150px;
     right: 0px;
     margin-right: 150px;
+    
 }
 
+// edit modal
+
+.modal-content {
+width: 50vw;
+}

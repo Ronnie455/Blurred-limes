@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardBody, CardTitle, Button, CardSubtitle, CardText } from 'reactstrap'
 import { NavLink } from "react-router-dom";
 
-const Protectedindex = ({foodItems, current_user}) => {
+const ProtectedIndex = ({foodItems, current_user}) => {
   const myFoodItems = foodItems?.filter(foodItem => current_user.id === foodItem.user_id)
 
   return (
@@ -54,4 +54,4 @@ const Protectedindex = ({foodItems, current_user}) => {
   )
 }
 
-export default Protectedindex
+export default ProtectedIndex
